@@ -15,8 +15,8 @@ Buku ditulis dalam format markdown dan mengikuti kebutuhan sebagai berikut:
 
 Buku dibagi menjadi 3 kategori besar, yaitu:
 - Penggunaan git secara local tanpa git repository atau remote
-- Penggunaan git secara remote secara individu
-- Penggunaan git secara remote untuk kolaborasi
+- Penggunaan git secara remote
+- Kolaborasi dengan git
     - Studi kasus Fork repository
     - Studi kasus kolaborasi dengan hak akses tulis langsung
     - Studi kasus organisasi
@@ -29,7 +29,7 @@ Buku dibagi menjadi 3 kategori besar, yaitu:
 ## Git Client
 
 - Git client yang digunakan adalah integrasi git ekstensi pada vscode
-- Lampirkan juga pembahasan perintah yang ekuivalen dengan git cli
+- Setiap pembahasan git client dengan git vscode lampirkan perintah yang ekuivalen dengan git cli
 - Tambahkan juga pembahasan integrasi perintah git (GitHub CLI) dengan GitHub
 
 ## Ilustrasi dan Gambar

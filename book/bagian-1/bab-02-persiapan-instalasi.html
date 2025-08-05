@@ -183,6 +183,422 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="bab-2-persiapan-dan-instalasi"><a class="header" href="#bab-2-persiapan-dan-instalasi">Bab 2: Persiapan dan Instalasi</a></h1>
+<h2 id="pengantar"><a class="header" href="#pengantar">Pengantar</a></h2>
+<p>Sebelum bisa menggunakan Git, kita perlu menyiapkan “senjata” terlebih dahulu. Bab ini akan memandu Anda step-by-step untuk:</p>
+<ul>
+<li>🔧 <strong>Install Git</strong> di sistem operasi Anda</li>
+<li>💻 <strong>Setup VS Code</strong> dengan Git extension</li>
+<li>⚙️ <strong>Konfigurasi awal</strong> Git dengan identitas Anda</li>
+<li>🛠️ <strong>Install GitHub CLI</strong> untuk automasi</li>
+<li>🎯 <strong>Verifikasi</strong> bahwa semua sudah berjalan dengan baik</li>
+</ul>
+<div class="callout tip">
+💡 **Pro Tip**: Jangan skip langkah verifikasi! Lebih baik spend 5 menit extra untuk memastikan setup benar daripada stuck berjam-jam nanti karena konfigurasi salah.
+</div>
+<h2 id="instalasi-git"><a class="header" href="#instalasi-git">Instalasi Git</a></h2>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<div class="steps">
+<div class="step">
+**Download Git for Windows**
+<ol>
+<li>Buka <a href="https://git-scm.com/download/win">git-scm.com/download/win</a></li>
+<li>Download akan otomatis dimulai</li>
+<li>Jalankan file installer yang terdownload</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download Git untuk Windows]
+</div>
+</div>
+<div class="step">
+**Jalankan Installer**
+<p>Ikuti wizard installer dengan settings berikut:</p>
+<ul>
+<li>✅ <strong>Select Components</strong>: Centang semua default options</li>
+<li>✅ <strong>Choosing the default editor</strong>: Pilih “Use Visual Studio Code as Git’s default editor”</li>
+<li>✅ <strong>PATH environment</strong>: Pilih “Git from the command line and also from 3rd-party software”</li>
+<li>✅ <strong>HTTPS transport backend</strong>: Pilih “Use the OpenSSL library”</li>
+<li>✅ <strong>Line ending conversions</strong>: Pilih “Checkout Windows-style, commit Unix-style line endings”</li>
+<li>✅ <strong>Terminal emulator</strong>: Pilih “Use MinTTY”</li>
+<li>✅ <strong>Default behavior of git pull</strong>: Pilih “Default (fast-forward or merge)”</li>
+</ul>
+<div class="image-placeholder">
+[Gambar: Screenshot installer Git Windows dengan options yang recommended]
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<p>Buka <strong>Command Prompt</strong> atau <strong>PowerShell</strong> dan jalankan:</p>
+<div class="code-with-label">
+<div class="code-label">Command Prompt / PowerShell</div>
+<pre><code class="language-cmd">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.41.0.windows.1
+</code></pre>
+</div>
+</div>
+<h3 id="macos"><a class="header" href="#macos">macOS</a></h3>
+<div class="steps">
+<div class="step">
+**Opsi 1: Homebrew (Recommended)**
+<p>Jika sudah punya Homebrew:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">brew install git
+</code></pre>
+</div>
+<p>Jika belum punya Homebrew, install dulu:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Opsi 2: Download dari Website**
+<ol>
+<li>Buka <a href="https://git-scm.com/download/mac">git-scm.com/download/mac</a></li>
+<li>Download file .dmg</li>
+<li>Jalankan installer dan ikuti petunjuk</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download Git untuk macOS]
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.41.0
+</code></pre>
+</div>
+</div>
+<h3 id="linux-ubuntudebian"><a class="header" href="#linux-ubuntudebian">Linux (Ubuntu/Debian)</a></h3>
+<div class="steps">
+<div class="step">
+**Install via Package Manager**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo apt update
+sudo apt install git
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.34.1
+</code></pre>
+</div>
+</div>
+<h3 id="linux-centosrhelfedora"><a class="header" href="#linux-centosrhelfedora">Linux (CentOS/RHEL/Fedora)</a></h3>
+<div class="steps">
+<div class="step">
+**Install via Package Manager**
+<p>Untuk CentOS/RHEL:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo yum install git
+</code></pre>
+</div>
+<p>Untuk Fedora:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo dnf install git
+</code></pre>
+</div>
+</div>
+</div>
+<h2 id="setup-visual-studio-code"><a class="header" href="#setup-visual-studio-code">Setup Visual Studio Code</a></h2>
+<h3 id="install-vs-code"><a class="header" href="#install-vs-code">Install VS Code</a></h3>
+<div class="steps">
+<div class="step">
+**Download VS Code**
+<ol>
+<li>Buka <a href="https://code.visualstudio.com">code.visualstudio.com</a></li>
+<li>Download sesuai OS Anda</li>
+<li>Install dengan settings default</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download VS Code]
+</div>
+</div>
+<div class="step">
+**Install Git Extension (Opsional)**
+<p>VS Code sudah punya built-in Git support, tapi extension tambahan bisa membantu:</p>
+<ol>
+<li>Buka VS Code</li>
+<li>Tekan <code>Ctrl+Shift+X</code> (Windows/Linux) atau <code>Cmd+Shift+X</code> (macOS)</li>
+<li>Search dan install extensions berikut:
+<ul>
+<li><strong>GitLens</strong> (sangat recommended)</li>
+<li><strong>Git History</strong></li>
+<li><strong>Git Graph</strong></li>
+</ul>
+</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Extensions marketplace dengan GitLens highlighted]
+</div>
+</div>
+</div>
+<h2 id="konfigurasi-awal-git"><a class="header" href="#konfigurasi-awal-git">Konfigurasi Awal Git</a></h2>
+<p>Setelah Git terinstall, kita perlu setup identitas Anda. Informasi ini akan digunakan di setiap commit yang Anda buat.</p>
+<h3 id="setup-user-identity"><a class="header" href="#setup-user-identity">Setup User Identity</a></h3>
+<div class="steps">
+<div class="step">
+**Set Username dan Email**
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global user.name "Nama Lengkap Anda"
+git config --global user.email "email@anda.com"
+</code></pre>
+</div>
+<p><strong>Contoh:</strong></p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global user.name "Budi Santoso"
+git config --global user.email "budi.santoso@gmail.com"
+</code></pre>
+</div>
+<div class="callout warning">
+⚠️ **Penting**: Gunakan email yang sama dengan yang akan Anda gunakan untuk GitHub account nanti!
+</div>
+</div>
+<div class="step">
+**Set Default Branch Name**
+<p>Git versi terbaru menggunakan <code>main</code> sebagai default branch name:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global init.defaultBranch main
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Set Default Editor**
+<p>Jika belum set saat instalasi:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global core.editor "code --wait"
+</code></pre>
+</div>
+<p>Ini akan membuat VS Code sebagai default editor untuk Git operations.</p>
+</div>
+</div>
+<h3 id="konfigurasi-tambahan-opsional"><a class="header" href="#konfigurasi-tambahan-opsional">Konfigurasi Tambahan (Opsional)</a></h3>
+<div class="steps">
+<div class="step">
+**Line Ending Configuration**
+<p>Untuk Windows users (handle CRLF vs LF):</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI - Windows</div>
+<pre><code class="language-bash">git config --global core.autocrlf true
+</code></pre>
+</div>
+<p>Untuk macOS/Linux users:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI - macOS/Linux</div>
+<pre><code class="language-bash">git config --global core.autocrlf input
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Color Output**
+<p>Aktifkan colored output untuk readability:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global color.ui auto
+</code></pre>
+</div>
+</div>
+</div>
+<h3 id="verifikasi-konfigurasi"><a class="header" href="#verifikasi-konfigurasi">Verifikasi Konfigurasi</a></h3>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --list --global
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>user.name=Budi Santoso
+user.email=budi.santoso@gmail.com
+init.defaultbranch=main
+core.editor=code --wait
+core.autocrlf=true
+color.ui=auto
+</code></pre>
+<h2 id="install-github-cli"><a class="header" href="#install-github-cli">Install GitHub CLI</a></h2>
+<p>GitHub CLI (<code>gh</code>) adalah tool resmi dari GitHub untuk berinteraksi dengan GitHub dari command line.</p>
+<h3 id="windows-1"><a class="header" href="#windows-1">Windows</a></h3>
+<div class="steps">
+<div class="step">
+**Via Winget (Windows 10+)**
+<div class="code-with-label">
+<div class="code-label">PowerShell</div>
+<pre><code class="language-powershell">winget install --id GitHub.cli
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Via Download Manual**
+<ol>
+<li>Buka <a href="https://cli.github.com">cli.github.com</a></li>
+<li>Download Windows installer</li>
+<li>Jalankan dan ikuti petunjuk</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download GitHub CLI]
+</div>
+</div>
+</div>
+<h3 id="macos-1"><a class="header" href="#macos-1">macOS</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">brew install gh
+</code></pre>
+</div>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash"># Ubuntu/Debian
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null
+sudo apt update
+sudo apt install gh
+</code></pre>
+</div>
+<h3 id="verifikasi-github-cli"><a class="header" href="#verifikasi-github-cli">Verifikasi GitHub CLI</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">gh --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>gh version 2.32.1 (2023-07-18)
+</code></pre>
+<div class="callout info">
+💡 **Note**: Kita akan setup authentication ke GitHub di bab selanjutnya saat mulai bekerja dengan remote repositories.
+</div>
+<h2 id="test-setup-dengan-vs-code"><a class="header" href="#test-setup-dengan-vs-code">Test Setup dengan VS Code</a></h2>
+<p>Mari test apakah VS Code sudah terintegrasi dengan Git dengan baik.</p>
+<div class="steps">
+<div class="step">
+**Buka VS Code**
+<p>Jalankan VS Code dan perhatikan interface-nya.</p>
+</div>
+<div class="step">
+**Check Git Integration**
+<ol>
+<li>Buka <strong>Command Palette</strong>: <code>Ctrl+Shift+P</code> (Windows/Linux) atau <code>Cmd+Shift+P</code> (macOS)</li>
+<li>Ketik “git” dan lihat apakah ada commands yang muncul</li>
+<li>Anda seharusnya melihat options seperti:
+<ul>
+<li>Git: Clone</li>
+<li>Git: Initialize Repository</li>
+<li>Git: Stage All Changes</li>
+<li>dll.</li>
+</ul>
+</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Command Palette showing Git commands]
+</div>
+</div>
+<div class="step">
+**Check Source Control Panel**
+<ol>
+<li>Klik icon <strong>Source Control</strong> di sidebar kiri (atau <code>Ctrl+Shift+G</code>)</li>
+<li>Anda seharusnya melihat panel Git yang kosong dengan tombol “Initialize Repository”</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Source Control panel sebelum ada repository]
+</div>
+</div>
+</div>
+<h2 id="troubleshooting-common-issues"><a class="header" href="#troubleshooting-common-issues">Troubleshooting Common Issues</a></h2>
+<h3 id="git-command-not-found"><a class="header" href="#git-command-not-found">Git Command Not Found</a></h3>
+<p><strong>Problem</strong>: <code>git: command not found</code> atau <code>'git' is not recognized</code></p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><strong>Windows</strong>: Restart Command Prompt/PowerShell, atau reboot sistem</li>
+<li><strong>macOS/Linux</strong>: Check PATH dengan <code>echo $PATH</code>, pastikan Git location ada di PATH</li>
+<li>Reinstall Git dengan opsi “Add to PATH”</li>
+</ul>
+<h3 id="vs-code-cant-find-git"><a class="header" href="#vs-code-cant-find-git">VS Code Can’t Find Git</a></h3>
+<p><strong>Problem</strong>: VS Code menampilkan “Git not found”</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Restart VS Code setelah install Git</li>
+<li>Manual set Git path di VS Code settings:
+<ul>
+<li><code>Ctrl+,</code> → search “git path”</li>
+<li>Set <code>git.path</code> ke lokasi git executable</li>
+</ul>
+</li>
+</ol>
+<h3 id="permission-issues-linuxmacos"><a class="header" href="#permission-issues-linuxmacos">Permission Issues (Linux/macOS)</a></h3>
+<p><strong>Problem</strong>: Permission denied saat konfigurasi</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Fix git config permissions
+sudo chown -R $(whoami) ~/.gitconfig
+
+# Make sure git is executable
+which git
+ls -la $(which git)
+</code></pre>
+<h3 id="line-ending-issues"><a class="header" href="#line-ending-issues">Line Ending Issues</a></h3>
+<p><strong>Problem</strong>: Warning tentang CRLF/LF conversion</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Sudah di-handle di konfigurasi awal</li>
+<li>Jika masih muncul, jalankan ulang line ending config di atas</li>
+</ul>
+<div class="callout danger">
+🚨 **Stuck?** Jangan panik! Join ke Discord/Telegram community atau cari di Stack Overflow dengan error message spesifik Anda. 99% masalah instalasi sudah pernah dialami orang lain.
+</div>
+<h2 id="ringkasan"><a class="header" href="#ringkasan">Ringkasan</a></h2>
+<p>Setelah menyelesaikan bab ini, Anda seharusnya memiliki:</p>
+<p>✅ <strong>Git terinstall</strong> di sistem dengan versi terbaru<br />
+✅ <strong>VS Code terinstall</strong> dengan Git integration aktif<br />
+✅ <strong>User identity</strong> terkonfigurasi (name &amp; email)<br />
+✅ <strong>Default settings</strong> yang optimal untuk Git workflow<br />
+✅ <strong>GitHub CLI</strong> terinstall dan siap pakai<br />
+✅ <strong>Troubleshooting knowledge</strong> untuk masalah umum</p>
+<h2 id="latihan-mandiri"><a class="header" href="#latihan-mandiri">Latihan Mandiri</a></h2>
+<p>Sebelum lanjut ke bab berikutnya, pastikan Anda bisa menjalankan commands berikut tanpa error:</p>
+<div class="code-with-label">
+<div class="code-label">Checklist Commands</div>
+<pre><code class="language-bash"># 1. Check Git version
+git --version
+
+# 2. Check Git configuration
+git config --list --global
+
+# 3. Check GitHub CLI
+gh --version
+
+# 4. Open VS Code from terminal
+code --version
+</code></pre>
+</div>
+<p><strong>Bonus Challenge</strong>:</p>
+<ul>
+<li>Buka VS Code dan eksplorasi Source Control panel</li>
+<li>Coba ketik “git” di Command Palette dan lihat options yang tersedia</li>
+<li>Check apakah GitLens extension (jika diinstall) sudah aktif</li>
+</ul>
+<hr />
+<p><strong>Next</strong>: Di <a href="./bab-03-repository-pertama.html">Bab 3</a>, kita akan membuat repository Git pertama Anda dan mulai tracking files! 🎯</p>
 
                     </main>
 

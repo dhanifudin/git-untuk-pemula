@@ -453,7 +453,891 @@ git checkout -b crazy-idea
 <hr />
 <p><strong>Next</strong>: Di <a href="bagian-1/./bab-02-persiapan-instalasi.html">Bab 2</a>, kita akan install Git dan setup environment development Anda! 🛠️</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bab-2-persiapan-dan-instalasi"><a class="header" href="#bab-2-persiapan-dan-instalasi">Bab 2: Persiapan dan Instalasi</a></h1>
+<h2 id="pengantar-1"><a class="header" href="#pengantar-1">Pengantar</a></h2>
+<p>Sebelum bisa menggunakan Git, kita perlu menyiapkan “senjata” terlebih dahulu. Bab ini akan memandu Anda step-by-step untuk:</p>
+<ul>
+<li>🔧 <strong>Install Git</strong> di sistem operasi Anda</li>
+<li>💻 <strong>Setup VS Code</strong> dengan Git extension</li>
+<li>⚙️ <strong>Konfigurasi awal</strong> Git dengan identitas Anda</li>
+<li>🛠️ <strong>Install GitHub CLI</strong> untuk automasi</li>
+<li>🎯 <strong>Verifikasi</strong> bahwa semua sudah berjalan dengan baik</li>
+</ul>
+<div class="callout tip">
+💡 **Pro Tip**: Jangan skip langkah verifikasi! Lebih baik spend 5 menit extra untuk memastikan setup benar daripada stuck berjam-jam nanti karena konfigurasi salah.
+</div>
+<h2 id="instalasi-git"><a class="header" href="#instalasi-git">Instalasi Git</a></h2>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<div class="steps">
+<div class="step">
+**Download Git for Windows**
+<ol>
+<li>Buka <a href="https://git-scm.com/download/win">git-scm.com/download/win</a></li>
+<li>Download akan otomatis dimulai</li>
+<li>Jalankan file installer yang terdownload</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download Git untuk Windows]
+</div>
+</div>
+<div class="step">
+**Jalankan Installer**
+<p>Ikuti wizard installer dengan settings berikut:</p>
+<ul>
+<li>✅ <strong>Select Components</strong>: Centang semua default options</li>
+<li>✅ <strong>Choosing the default editor</strong>: Pilih “Use Visual Studio Code as Git’s default editor”</li>
+<li>✅ <strong>PATH environment</strong>: Pilih “Git from the command line and also from 3rd-party software”</li>
+<li>✅ <strong>HTTPS transport backend</strong>: Pilih “Use the OpenSSL library”</li>
+<li>✅ <strong>Line ending conversions</strong>: Pilih “Checkout Windows-style, commit Unix-style line endings”</li>
+<li>✅ <strong>Terminal emulator</strong>: Pilih “Use MinTTY”</li>
+<li>✅ <strong>Default behavior of git pull</strong>: Pilih “Default (fast-forward or merge)”</li>
+</ul>
+<div class="image-placeholder">
+[Gambar: Screenshot installer Git Windows dengan options yang recommended]
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<p>Buka <strong>Command Prompt</strong> atau <strong>PowerShell</strong> dan jalankan:</p>
+<div class="code-with-label">
+<div class="code-label">Command Prompt / PowerShell</div>
+<pre><code class="language-cmd">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.41.0.windows.1
+</code></pre>
+</div>
+</div>
+<h3 id="macos"><a class="header" href="#macos">macOS</a></h3>
+<div class="steps">
+<div class="step">
+**Opsi 1: Homebrew (Recommended)**
+<p>Jika sudah punya Homebrew:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">brew install git
+</code></pre>
+</div>
+<p>Jika belum punya Homebrew, install dulu:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Opsi 2: Download dari Website**
+<ol>
+<li>Buka <a href="https://git-scm.com/download/mac">git-scm.com/download/mac</a></li>
+<li>Download file .dmg</li>
+<li>Jalankan installer dan ikuti petunjuk</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download Git untuk macOS]
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.41.0
+</code></pre>
+</div>
+</div>
+<h3 id="linux-ubuntudebian"><a class="header" href="#linux-ubuntudebian">Linux (Ubuntu/Debian)</a></h3>
+<div class="steps">
+<div class="step">
+**Install via Package Manager**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo apt update
+sudo apt install git
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Verifikasi Instalasi**
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">git --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>git version 2.34.1
+</code></pre>
+</div>
+</div>
+<h3 id="linux-centosrhelfedora"><a class="header" href="#linux-centosrhelfedora">Linux (CentOS/RHEL/Fedora)</a></h3>
+<div class="steps">
+<div class="step">
+**Install via Package Manager**
+<p>Untuk CentOS/RHEL:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo yum install git
+</code></pre>
+</div>
+<p>Untuk Fedora:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">sudo dnf install git
+</code></pre>
+</div>
+</div>
+</div>
+<h2 id="setup-visual-studio-code"><a class="header" href="#setup-visual-studio-code">Setup Visual Studio Code</a></h2>
+<h3 id="install-vs-code"><a class="header" href="#install-vs-code">Install VS Code</a></h3>
+<div class="steps">
+<div class="step">
+**Download VS Code**
+<ol>
+<li>Buka <a href="https://code.visualstudio.com">code.visualstudio.com</a></li>
+<li>Download sesuai OS Anda</li>
+<li>Install dengan settings default</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download VS Code]
+</div>
+</div>
+<div class="step">
+**Install Git Extension (Opsional)**
+<p>VS Code sudah punya built-in Git support, tapi extension tambahan bisa membantu:</p>
+<ol>
+<li>Buka VS Code</li>
+<li>Tekan <code>Ctrl+Shift+X</code> (Windows/Linux) atau <code>Cmd+Shift+X</code> (macOS)</li>
+<li>Search dan install extensions berikut:
+<ul>
+<li><strong>GitLens</strong> (sangat recommended)</li>
+<li><strong>Git History</strong></li>
+<li><strong>Git Graph</strong></li>
+</ul>
+</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Extensions marketplace dengan GitLens highlighted]
+</div>
+</div>
+</div>
+<h2 id="konfigurasi-awal-git"><a class="header" href="#konfigurasi-awal-git">Konfigurasi Awal Git</a></h2>
+<p>Setelah Git terinstall, kita perlu setup identitas Anda. Informasi ini akan digunakan di setiap commit yang Anda buat.</p>
+<h3 id="setup-user-identity"><a class="header" href="#setup-user-identity">Setup User Identity</a></h3>
+<div class="steps">
+<div class="step">
+**Set Username dan Email**
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global user.name "Nama Lengkap Anda"
+git config --global user.email "email@anda.com"
+</code></pre>
+</div>
+<p><strong>Contoh:</strong></p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global user.name "Budi Santoso"
+git config --global user.email "budi.santoso@gmail.com"
+</code></pre>
+</div>
+<div class="callout warning">
+⚠️ **Penting**: Gunakan email yang sama dengan yang akan Anda gunakan untuk GitHub account nanti!
+</div>
+</div>
+<div class="step">
+**Set Default Branch Name**
+<p>Git versi terbaru menggunakan <code>main</code> sebagai default branch name:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global init.defaultBranch main
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Set Default Editor**
+<p>Jika belum set saat instalasi:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global core.editor "code --wait"
+</code></pre>
+</div>
+<p>Ini akan membuat VS Code sebagai default editor untuk Git operations.</p>
+</div>
+</div>
+<h3 id="konfigurasi-tambahan-opsional"><a class="header" href="#konfigurasi-tambahan-opsional">Konfigurasi Tambahan (Opsional)</a></h3>
+<div class="steps">
+<div class="step">
+**Line Ending Configuration**
+<p>Untuk Windows users (handle CRLF vs LF):</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI - Windows</div>
+<pre><code class="language-bash">git config --global core.autocrlf true
+</code></pre>
+</div>
+<p>Untuk macOS/Linux users:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI - macOS/Linux</div>
+<pre><code class="language-bash">git config --global core.autocrlf input
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Color Output**
+<p>Aktifkan colored output untuk readability:</p>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --global color.ui auto
+</code></pre>
+</div>
+</div>
+</div>
+<h3 id="verifikasi-konfigurasi"><a class="header" href="#verifikasi-konfigurasi">Verifikasi Konfigurasi</a></h3>
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git config --list --global
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>user.name=Budi Santoso
+user.email=budi.santoso@gmail.com
+init.defaultbranch=main
+core.editor=code --wait
+core.autocrlf=true
+color.ui=auto
+</code></pre>
+<h2 id="install-github-cli"><a class="header" href="#install-github-cli">Install GitHub CLI</a></h2>
+<p>GitHub CLI (<code>gh</code>) adalah tool resmi dari GitHub untuk berinteraksi dengan GitHub dari command line.</p>
+<h3 id="windows-1"><a class="header" href="#windows-1">Windows</a></h3>
+<div class="steps">
+<div class="step">
+**Via Winget (Windows 10+)**
+<div class="code-with-label">
+<div class="code-label">PowerShell</div>
+<pre><code class="language-powershell">winget install --id GitHub.cli
+</code></pre>
+</div>
+</div>
+<div class="step">
+**Via Download Manual**
+<ol>
+<li>Buka <a href="https://cli.github.com">cli.github.com</a></li>
+<li>Download Windows installer</li>
+<li>Jalankan dan ikuti petunjuk</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot halaman download GitHub CLI]
+</div>
+</div>
+</div>
+<h3 id="macos-1"><a class="header" href="#macos-1">macOS</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">brew install gh
+</code></pre>
+</div>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash"># Ubuntu/Debian
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null
+sudo apt update
+sudo apt install gh
+</code></pre>
+</div>
+<h3 id="verifikasi-github-cli"><a class="header" href="#verifikasi-github-cli">Verifikasi GitHub CLI</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">gh --version
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>gh version 2.32.1 (2023-07-18)
+</code></pre>
+<div class="callout info">
+💡 **Note**: Kita akan setup authentication ke GitHub di bab selanjutnya saat mulai bekerja dengan remote repositories.
+</div>
+<h2 id="test-setup-dengan-vs-code"><a class="header" href="#test-setup-dengan-vs-code">Test Setup dengan VS Code</a></h2>
+<p>Mari test apakah VS Code sudah terintegrasi dengan Git dengan baik.</p>
+<div class="steps">
+<div class="step">
+**Buka VS Code**
+<p>Jalankan VS Code dan perhatikan interface-nya.</p>
+</div>
+<div class="step">
+**Check Git Integration**
+<ol>
+<li>Buka <strong>Command Palette</strong>: <code>Ctrl+Shift+P</code> (Windows/Linux) atau <code>Cmd+Shift+P</code> (macOS)</li>
+<li>Ketik “git” dan lihat apakah ada commands yang muncul</li>
+<li>Anda seharusnya melihat options seperti:
+<ul>
+<li>Git: Clone</li>
+<li>Git: Initialize Repository</li>
+<li>Git: Stage All Changes</li>
+<li>dll.</li>
+</ul>
+</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Command Palette showing Git commands]
+</div>
+</div>
+<div class="step">
+**Check Source Control Panel**
+<ol>
+<li>Klik icon <strong>Source Control</strong> di sidebar kiri (atau <code>Ctrl+Shift+G</code>)</li>
+<li>Anda seharusnya melihat panel Git yang kosong dengan tombol “Initialize Repository”</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Source Control panel sebelum ada repository]
+</div>
+</div>
+</div>
+<h2 id="troubleshooting-common-issues"><a class="header" href="#troubleshooting-common-issues">Troubleshooting Common Issues</a></h2>
+<h3 id="git-command-not-found"><a class="header" href="#git-command-not-found">Git Command Not Found</a></h3>
+<p><strong>Problem</strong>: <code>git: command not found</code> atau <code>'git' is not recognized</code></p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><strong>Windows</strong>: Restart Command Prompt/PowerShell, atau reboot sistem</li>
+<li><strong>macOS/Linux</strong>: Check PATH dengan <code>echo $PATH</code>, pastikan Git location ada di PATH</li>
+<li>Reinstall Git dengan opsi “Add to PATH”</li>
+</ul>
+<h3 id="vs-code-cant-find-git"><a class="header" href="#vs-code-cant-find-git">VS Code Can’t Find Git</a></h3>
+<p><strong>Problem</strong>: VS Code menampilkan “Git not found”</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Restart VS Code setelah install Git</li>
+<li>Manual set Git path di VS Code settings:
+<ul>
+<li><code>Ctrl+,</code> → search “git path”</li>
+<li>Set <code>git.path</code> ke lokasi git executable</li>
+</ul>
+</li>
+</ol>
+<h3 id="permission-issues-linuxmacos"><a class="header" href="#permission-issues-linuxmacos">Permission Issues (Linux/macOS)</a></h3>
+<p><strong>Problem</strong>: Permission denied saat konfigurasi</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Fix git config permissions
+sudo chown -R $(whoami) ~/.gitconfig
+
+# Make sure git is executable
+which git
+ls -la $(which git)
+</code></pre>
+<h3 id="line-ending-issues"><a class="header" href="#line-ending-issues">Line Ending Issues</a></h3>
+<p><strong>Problem</strong>: Warning tentang CRLF/LF conversion</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Sudah di-handle di konfigurasi awal</li>
+<li>Jika masih muncul, jalankan ulang line ending config di atas</li>
+</ul>
+<div class="callout danger">
+🚨 **Stuck?** Jangan panik! Join ke Discord/Telegram community atau cari di Stack Overflow dengan error message spesifik Anda. 99% masalah instalasi sudah pernah dialami orang lain.
+</div>
+<h2 id="ringkasan-1"><a class="header" href="#ringkasan-1">Ringkasan</a></h2>
+<p>Setelah menyelesaikan bab ini, Anda seharusnya memiliki:</p>
+<p>✅ <strong>Git terinstall</strong> di sistem dengan versi terbaru<br />
+✅ <strong>VS Code terinstall</strong> dengan Git integration aktif<br />
+✅ <strong>User identity</strong> terkonfigurasi (name &amp; email)<br />
+✅ <strong>Default settings</strong> yang optimal untuk Git workflow<br />
+✅ <strong>GitHub CLI</strong> terinstall dan siap pakai<br />
+✅ <strong>Troubleshooting knowledge</strong> untuk masalah umum</p>
+<h2 id="latihan-mandiri-1"><a class="header" href="#latihan-mandiri-1">Latihan Mandiri</a></h2>
+<p>Sebelum lanjut ke bab berikutnya, pastikan Anda bisa menjalankan commands berikut tanpa error:</p>
+<div class="code-with-label">
+<div class="code-label">Checklist Commands</div>
+<pre><code class="language-bash"># 1. Check Git version
+git --version
+
+# 2. Check Git configuration
+git config --list --global
+
+# 3. Check GitHub CLI
+gh --version
+
+# 4. Open VS Code from terminal
+code --version
+</code></pre>
+</div>
+<p><strong>Bonus Challenge</strong>:</p>
+<ul>
+<li>Buka VS Code dan eksplorasi Source Control panel</li>
+<li>Coba ketik “git” di Command Palette dan lihat options yang tersedia</li>
+<li>Check apakah GitLens extension (jika diinstall) sudah aktif</li>
+</ul>
+<hr />
+<p><strong>Next</strong>: Di <a href="bagian-1/./bab-03-repository-pertama.html">Bab 3</a>, kita akan membuat repository Git pertama Anda dan mulai tracking files! 🎯</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bab-3-repository-pertama"><a class="header" href="#bab-3-repository-pertama">Bab 3: Repository Pertama</a></h1>
+<h2 id="pengantar-2"><a class="header" href="#pengantar-2">Pengantar</a></h2>
+<p>Saatnya terjun langsung! Di bab ini kita akan membuat repository Git pertama Anda dan mulai memahami konsep fundamental Git secara praktis.</p>
+<p>Yang akan kita pelajari:</p>
+<ul>
+<li>📁 <strong>Membuat repository</strong> dari folder kosong</li>
+<li>🔍 <strong>Memahami struktur</strong> folder <code>.git</code></li>
+<li>📝 <strong>Menggunakan contoh kasus</strong> sederhana: catatan harian</li>
+<li>💻 <strong>Praktik dengan VS Code</strong> dan Git CLI</li>
+<li>🎯 <strong>Memahami workflow</strong> dasar Git</li>
+</ul>
+<div class="callout tip">
+💡 **Mindset**: Anggap Git seperti sistem "Save Game" untuk project Anda. Repository adalah folder game, dan setiap commit adalah checkpoint yang bisa Anda load kapan saja.
+</div>
+<h2 id="apa-itu-repository"><a class="header" href="#apa-itu-repository">Apa itu Repository?</a></h2>
+<p><strong>Repository</strong> (atau <strong>repo</strong>) adalah folder project yang di-“awasi” oleh Git. Di dalam repository, Git akan:</p>
+<ul>
+<li>📸 <strong>Merekam snapshot</strong> dari semua file</li>
+<li>📜 <strong>Menyimpan histori</strong> perubahan</li>
+<li>🏷️ <strong>Menandai versi</strong> dengan commit messages</li>
+<li>🌳 <strong>Mengelola branches</strong> untuk development paralel</li>
+</ul>
+<h3 id="anatomi-repository"><a class="header" href="#anatomi-repository">Anatomi Repository</a></h3>
+<pre><code>my-project/              ← Working Directory
+├── .git/               ← Git Database (JANGAN DIUBAH MANUAL!)
+│   ├── config          ← Repository configuration
+│   ├── objects/        ← Git objects (commits, trees, blobs)
+│   ├── refs/           ← Branch dan tag references
+│   └── HEAD            ← Pointer ke current branch
+├── file1.txt           ← Your actual files
+├── file2.md            ← Your actual files
+└── .gitignore          ← Files to ignore (optional)
+</code></pre>
+<div class="callout warning">
+⚠️ **PENTING**: Jangan pernah mengedit file di dalam folder `.git` secara manual! Git yang akan mengelolanya. Kalau rusak, repository bisa corrupt.
+</div>
+<h2 id="persiapan-contoh-kasus-catatan-harian"><a class="header" href="#persiapan-contoh-kasus-catatan-harian">Persiapan: Contoh Kasus Catatan Harian</a></h2>
+<p>Untuk latihan, kita akan membuat sistem <strong>catatan harian</strong> sederhana. Ini perfect untuk belajar Git karena:</p>
+<ul>
+<li>✅ File-file kecil (markdown)</li>
+<li>✅ Perubahan sering terjadi (setiap hari)</li>
+<li>✅ Mudah dipahami isinya</li>
+<li>✅ Relatable untuk semua orang</li>
+</ul>
+<h3 id="struktur-project-yang-akan-dibuat"><a class="header" href="#struktur-project-yang-akan-dibuat">Struktur Project yang Akan Dibuat</a></h3>
+<pre><code>catatan-harian/
+├── .git/                    ← Git repository
+├── README.md               ← Penjelasan project
+├── 2024/                   ← Folder per tahun
+│   ├── januari/
+│   │   ├── 01-januari.md
+│   │   └── 02-januari.md
+│   └── februari-2024.md
+├── templates/              ← Template untuk catatan
+│   └── template-harian.md
+└── .gitignore             ← Files yang diabaikan Git
+</code></pre>
+<h2 id="langkah-1-membuat-folder-project"><a class="header" href="#langkah-1-membuat-folder-project">Langkah 1: Membuat Folder Project</a></h2>
+<div class="steps">
+<div class="step">
+**Buat Folder Project**
+<p>Buat folder untuk project catatan harian Anda:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal/Command Prompt</div>
+<pre><code class="language-bash"># Pindah ke folder Documents (atau lokasi lain yang Anda sukai)
+cd ~/Documents
+
+# Buat folder project
+mkdir catatan-harian
+
+# Masuk ke folder project
+cd catatan-harian
+</code></pre>
+</div>
+<p><strong>Via VS Code:</strong></p>
+<ol>
+<li>Buka VS Code</li>
+<li><code>File</code> → <code>Open Folder</code></li>
+<li>Buat folder baru bernama <code>catatan-harian</code></li>
+<li>Pilih folder tersebut</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code dialog "Open Folder" dengan folder catatan-harian]
+</div>
+</div>
+<div class="step">
+**Verifikasi Lokasi**
+<p>Pastikan Anda berada di folder yang benar:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash">pwd
+# Output: /Users/username/Documents/catatan-harian (macOS/Linux)
+# Output: C:\Users\username\Documents\catatan-harian (Windows)
+</code></pre>
+</div>
+<p>Di VS Code, Anda akan melihat folder <code>catatan-harian</code> terbuka di Explorer panel.</p>
+</div>
+</div>
+<h2 id="langkah-2-inisialisasi-repository"><a class="header" href="#langkah-2-inisialisasi-repository">Langkah 2: Inisialisasi Repository</a></h2>
+<div class="steps">
+<div class="step">
+**Initialize via Git CLI**
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git init
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>Initialized empty Git repository in /Users/username/Documents/catatan-harian/.git/
+</code></pre>
+<div class="callout info">
+💡 **What just happened?** Git membuat folder tersembunyi `.git` yang berisi database untuk menyimpan histori project Anda.
+</div>
+</div>
+<div class="step">
+**Initialize via VS Code**
+<p><strong>Alternatif cara via VS Code:</strong></p>
+<ol>
+<li>Buka <strong>Command Palette</strong>: <code>Ctrl+Shift+P</code></li>
+<li>Ketik “Git: Initialize Repository”</li>
+<li>Pilih current folder</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Command Palette dengan "Git: Initialize Repository" highlighted]
+</div>
+<p>Atau:</p>
+<ol>
+<li>Buka <strong>Source Control panel</strong> (<code>Ctrl+Shift+G</code>)</li>
+<li>Klik tombol <strong>“Initialize Repository”</strong></li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Source Control panel dengan tombol "Initialize Repository"]
+</div>
+</div>
+<div class="step">
+**Verifikasi Inisialisasi**
+<p>Check apakah folder <code>.git</code> sudah terbuat:</p>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash"># List all files including hidden ones
+ls -la
+
+# Atau di Windows
+dir /a
+</code></pre>
+</div>
+<p>Anda seharusnya melihat folder <code>.git</code> di list.</p>
+<p><strong>Di VS Code:</strong></p>
+<ul>
+<li>Source Control panel sekarang aktif</li>
+<li>Status bar di bawah menunjukkan branch name (biasanya <code>main</code>)</li>
+<li>Explorer akan menunjukkan icon Git di samping folder name</li>
+</ul>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code showing active Git repository dengan status bar dan Source Control panel]
+</div>
+</div>
+</div>
+<h2 id="langkah-3-membuat-file-pertama"><a class="header" href="#langkah-3-membuat-file-pertama">Langkah 3: Membuat File Pertama</a></h2>
+<p>Mari buat beberapa file untuk mulai tracking dengan Git.</p>
+<div class="steps">
+<div class="step">
+**Buat README.md**
+<div class="code-with-label">
+<div class="code-label">Via VS Code</div>
+<ol>
+<li>Klik <strong>New File</strong> di Explorer panel</li>
+<li>Beri nama <code>README.md</code></li>
+<li>Isi dengan konten berikut:</li>
+</ol>
+</div>
+<p><strong>Konten README.md:</strong></p>
+<pre><code class="language-markdown"># Catatan Harian
+
+Repository untuk menyimpan catatan harian pribadi dalam format Markdown.
+
+## Struktur Folder
+
+- `2024/` - Catatan per tahun
+- `templates/` - Template untuk catatan baru
+
+## Cara Penggunaan
+
+1. Copy template dari folder `templates/`
+2. Buat file baru dengan format `DD-MMMM.md`
+3. Tulis catatan harian Anda
+4. Commit perubahan ke Git
+
+## Timeline
+
+- **Januari 2024**: Project dimulai
+- **Target**: Konsisten menulis setiap hari
+
+---
+
+*"The best time to plant a tree was 20 years ago. The second best time is now."*
+</code></pre>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code editor dengan konten README.md dan file explorer showing README.md]
+</div>
+</div>
+<div class="step">
+**Buat Template File**
+<p>Buat folder dan file template:</p>
+<div class="code-with-label">
+<div class="code-label">Via VS Code</div>
+<ol>
+<li>Klik <strong>New Folder</strong> → beri nama <code>templates</code></li>
+<li>Di dalam folder <code>templates</code>, buat file <code>template-harian.md</code></li>
+</ol>
+</div>
+<p><strong>Konten template-harian.md:</strong></p>
+<pre><code class="language-markdown"># [Tanggal] - [Hari]
+
+## Mood Hari Ini
+- 😊 Bahagia
+- 😐 Biasa saja  
+- 😔 Sedih
+- 😤 Stres
+- 🤔 Bingung
+
+## Kegiatan Utama
+- [ ] Pagi: 
+- [ ] Siang: 
+- [ ] Sore: 
+- [ ] Malam: 
+
+## Pembelajaran Hari Ini
+&gt; Apa yang saya pelajari hari ini?
+
+## Hal yang Disyukuri
+1. 
+2. 
+3. 
+
+## Target Besok
+- [ ] 
+- [ ] 
+
+## Catatan Tambahan
+&gt; Refleksi bebas tentang hari ini...
+
+---
+*Ditulis pada: [Tanggal dan Waktu]*
+</code></pre>
+</div>
+<div class="step">
+**Buat Catatan Pertama**
+<p>Mari buat catatan pertama sebagai contoh:</p>
+<div class="code-with-label">
+<div class="code-label">Via VS Code</div>
+<ol>
+<li>Buat folder <code>2024</code></li>
+<li>Di dalam <code>2024</code>, buat file <code>01-januari-2024.md</code></li>
+</ol>
+</div>
+<p><strong>Konten 01-januari-2024.md:</strong></p>
+<pre><code class="language-markdown"># 01 Januari 2024 - Senin
+
+## Mood Hari Ini
+- 😊 Bahagia - Excited untuk project Git baru!
+
+## Kegiatan Utama
+- [x] Pagi: Belajar Git untuk pemula
+- [x] Siang: Setup repository pertama
+- [ ] Sore: Praktik commit pertama
+- [ ] Malam: Review dan planning besok
+
+## Pembelajaran Hari Ini
+&gt; Hari ini saya belajar cara membuat repository Git pertama. Ternyata Git itu seperti mesin waktu untuk kode!
+
+## Hal yang Disyukuri
+1. Punya waktu untuk belajar teknologi baru
+2. Dokumentasi Git yang lengkap dan mudah dipahami
+3. VS Code yang user-friendly untuk Git
+
+## Target Besok
+- [ ] Belajar cara commit dan push
+- [ ] Praktik branching sederhana
+
+## Catatan Tambahan
+&gt; Repository pertama sudah jadi! Next step adalah belajar cara track changes dan membuat commit. Semoga konsisten nulis catatan setiap hari.
+
+---
+*Ditulis pada: 1 Januari 2024, 14:30*
+</code></pre>
+</div>
+</div>
+<h2 id="langkah-4-melihat-status-repository"><a class="header" href="#langkah-4-melihat-status-repository">Langkah 4: Melihat Status Repository</a></h2>
+<p>Sekarang kita punya beberapa file. Mari lihat bagaimana Git melihat situasi ini.</p>
+<div class="steps">
+<div class="step">
+**Check Status via Git CLI**
+<div class="code-with-label">
+<div class="code-label">Git CLI</div>
+<pre><code class="language-bash">git status
+</code></pre>
+</div>
+<p>Output yang diharapkan:</p>
+<pre><code>On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        README.md
+        templates/
+        2024/
+
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre>
+<div class="callout info">
+💡 **Penjelasan Status:**
+- **On branch main**: Anda sedang di branch utama
+- **No commits yet**: Belum ada commit (checkpoint) yang dibuat
+- **Untracked files**: File-file ini belum di-track oleh Git
+</div>
+</div>
+<div class="step">
+**Check Status via VS Code**
+<p>Di VS Code, perhatikan:</p>
+<ol>
+<li><strong>Source Control panel</strong> (<code>Ctrl+Shift+G</code>) menunjukkan jumlah changes</li>
+<li><strong>File Explorer</strong> menunjukkan file dengan status:
+<ul>
+<li><strong>Untracked files</strong>: Huruf “U” warna hijau di samping nama file</li>
+</ul>
+</li>
+</ol>
+<div class="image-placeholder">
+[Gambar: Screenshot VS Code Source Control panel showing untracked files dengan status indicators]
+</div>
+</div>
+</div>
+<h2 id="langkah-5-memahami-git-workflow"><a class="header" href="#langkah-5-memahami-git-workflow">Langkah 5: Memahami Git Workflow</a></h2>
+<p>Sebelum melanjutkan, mari pahami konsep <strong>Three Trees</strong> atau <strong>Three States</strong> dalam Git:</p>
+<div class="image-placeholder">
+[Gambar: Diagram Git workflow showing Working Directory → Staging Area → Repository dengan arrows dan labels]
+</div>
+<h3 id="1-working-directory-working-tree"><a class="header" href="#1-working-directory-working-tree">1. Working Directory (Working Tree)</a></h3>
+<ul>
+<li>Folder project Anda dengan file-file aktual</li>
+<li>Tempat Anda mengedit file</li>
+<li>File changes yang belum di-stage</li>
+</ul>
+<h3 id="2-staging-area-index"><a class="header" href="#2-staging-area-index">2. Staging Area (Index)</a></h3>
+<ul>
+<li>Area temporary untuk menyiapkan commit</li>
+<li>File changes yang sudah di-add tapi belum di-commit</li>
+<li>Seperti “shopping cart” sebelum checkout</li>
+</ul>
+<h3 id="3-repository-git-directory"><a class="header" href="#3-repository-git-directory">3. Repository (.git directory)</a></h3>
+<ul>
+<li>Database Git yang menyimpan semua commits</li>
+<li>Histori lengkap project</li>
+<li>File changes yang sudah di-commit (permanent)</li>
+</ul>
+<h3 id="workflow-commands"><a class="header" href="#workflow-commands">Workflow Commands</a></h3>
+<pre><code class="language-bash"># Working Directory → Staging Area
+git add filename
+
+# Staging Area → Repository
+git commit -m "message"
+
+# Check status di setiap tahap
+git status
+</code></pre>
+<div class="callout tip">
+💡 **Analogi**: Bayangkan Anda sedang packing koper:
+- **Working Directory**: Barang-barang di kamar (untracked)
+- **Staging Area**: Barang yang sudah diletakkan di koper tapi belum dikunci (staged)
+- **Repository**: Koper yang sudah dikunci dan ready to go (committed)
+</div>
+<h2 id="eksplorasi-folder-git"><a class="header" href="#eksplorasi-folder-git">Eksplorasi Folder .git</a></h2>
+<p>Mari kita intip isi folder <code>.git</code> untuk memahami bagaimana Git bekerja.</p>
+<div class="callout warning">
+⚠️ **PERINGATAN**: Ini hanya untuk edukasi. Jangan pernah edit file di `.git` secara manual!
+</div>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash"># List isi folder .git
+ls -la .git/
+
+# Atau di Windows
+dir .git
+</code></pre>
+</div>
+<p>File dan folder penting di <code>.git</code>:</p>
+<pre><code>.git/
+├── config              ← Repository configuration
+├── HEAD               ← Pointer ke current branch
+├── branches/          ← Deprecated (legacy)
+├── description        ← Repository description
+├── hooks/            ← Git hooks (scripts)
+├── info/             ← Global excludes
+├── objects/          ← Git object database
+├── refs/             ← References (branches, tags)
+└── logs/             ← Reflog (history of ref changes)
+</code></pre>
+<h3 id="file-penting"><a class="header" href="#file-penting">File Penting</a></h3>
+<div class="code-with-label">
+<div class="code-label">Terminal</div>
+<pre><code class="language-bash"># Lihat current branch
+cat .git/HEAD
+
+# Lihat config repository
+cat .git/config
+</code></pre>
+</div>
+<p>Output <code>.git/HEAD</code>:</p>
+<pre><code>ref: refs/heads/main
+</code></pre>
+<p>Output <code>.git/config</code>:</p>
+<pre><code>[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+[user]
+    name = Your Name
+    email = your.email@example.com
+</code></pre>
+<h2 id="troubleshooting-common-issues-1"><a class="header" href="#troubleshooting-common-issues-1">Troubleshooting Common Issues</a></h2>
+<h3 id="repository-already-exists"><a class="header" href="#repository-already-exists">Repository Already Exists</a></h3>
+<p><strong>Problem</strong>: Error <code>fatal: Existing git repository</code></p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Anda sudah punya <code>.git</code> folder</li>
+<li>Hapus <code>.git</code> jika ingin mulai fresh: <code>rm -rf .git</code></li>
+<li>Atau pindah ke folder lain</li>
+</ul>
+<h3 id="permission-denied"><a class="header" href="#permission-denied">Permission Denied</a></h3>
+<p><strong>Problem</strong>: Permission denied saat <code>git init</code></p>
+<p><strong>Solution</strong>:</p>
+<pre><code class="language-bash"># Fix folder permissions
+chmod 755 .
+</code></pre>
+<h3 id="vs-code-not-detecting-git"><a class="header" href="#vs-code-not-detecting-git">VS Code Not Detecting Git</a></h3>
+<p><strong>Problem</strong>: VS Code tidak menunjukkan Git integration</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Restart VS Code</li>
+<li>Reload window: <code>Ctrl+Shift+P</code> → “Developer: Reload Window”</li>
+<li>Check bahwa folder <code>.git</code> ada</li>
+<li>Check Git path di VS Code settings</li>
+</ol>
+<h2 id="ringkasan-2"><a class="header" href="#ringkasan-2">Ringkasan</a></h2>
+<p>Setelah menyelesaikan bab ini, Anda telah:</p>
+<p>✅ <strong>Membuat repository Git pertama</strong> dengan <code>git init</code><br />
+✅ <strong>Memahami struktur</strong> working directory vs <code>.git</code> folder<br />
+✅ <strong>Mengenal Git workflow</strong> (Working Directory → Staging → Repository)<br />
+✅ <strong>Membuat file project</strong> dengan contoh kasus catatan harian<br />
+✅ <strong>Menggunakan VS Code</strong> untuk Git operations<br />
+✅ <strong>Melihat status repository</strong> dengan <code>git status</code></p>
+<h2 id="latihan-mandiri-2"><a class="header" href="#latihan-mandiri-2">Latihan Mandiri</a></h2>
+<p>Sebelum lanjut ke bab berikutnya:</p>
+<ol>
+<li><strong>Experiment</strong>: Buat folder project lain dan coba <code>git init</code></li>
+<li><strong>Explore</strong>: Lihat isi folder <code>.git</code> dan coba pahami strukturnya</li>
+<li><strong>Modify</strong>: Edit salah satu file dan jalankan <code>git status</code> lagi</li>
+<li><strong>Question</strong>: Apa perbedaan status sebelum dan sesudah mengedit file?</li>
+</ol>
+<p><strong>Challenge</strong>:</p>
+<ul>
+<li>Buat repository untuk project lain (misalnya: resep-masakan, book-notes, dll)</li>
+<li>Praktek workflow yang sama: buat folder → <code>git init</code> → tambah files → <code>git status</code></li>
+</ul>
+<hr />
+<p><strong>Next</strong>: Di <a href="bagian-1/./bab-04-tracking-perubahan.html">Bab 4</a>, kita akan mulai tracking perubahan dan membuat commit pertama! 🎯</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bab-4-tracking-perubahan"><a class="header" href="#bab-4-tracking-perubahan">Bab 4: Tracking Perubahan</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bab-5-melihat-status-dan-riwayat"><a class="header" href="#bab-5-melihat-status-dan-riwayat">Bab 5: Melihat Status dan Riwayat</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bab-6-branching-dasar"><a class="header" href="#bab-6-branching-dasar">Bab 6: Branching Dasar</a></h1>

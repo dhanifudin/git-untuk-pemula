@@ -12,18 +12,27 @@ create-missing = true
 
 [preprocessor.links]
 
+# Optional preprocessors - uncomment jika ingin menggunakan
+# [preprocessor.mermaid]
+# command = "mdbook-mermaid"
+
+# [preprocessor.admonish]
+# command = "mdbook-admonish"
+# assets_version = "3.0.2"
+
 [output.html]
 theme = "theme"
 default-theme = "light"
 preferred-dark-theme = "navy"
-curly-quotes = true
+smart-punctuation = true
 mathjax-support = false
 copy-fonts = true
 additional-css = ["theme/custom.css"]
 additional-js = []
 no-section-label = false
-git-repository-url = "https://github.com/username/git-untuk-pemula"
-edit-url-template = "https://github.com/username/git-untuk-pemula/edit/main/src/{path}"
+git-repository-url = "https://github.com/dhanifudin/git-untuk-pemula"
+edit-url-template = "https://github.com/dhanifudin/git-untuk-pemula/edit/main/src/{path}"
+site-url = "/git-untuk-pemula/"
 
 [output.html.search]
 enable = true

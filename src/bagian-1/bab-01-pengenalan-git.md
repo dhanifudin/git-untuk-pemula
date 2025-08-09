@@ -24,7 +24,7 @@ Bayangkan Anda sedang menulis novel. Setiap hari Anda menambah beberapa paragraf
 - 🛡️ **Melindungi dari kehilangan data** karena tersimpan di multiple lokasi
 
 <div class="callout info">
-💡 **Analogi Sederhana**: Version control seperti sistem "Save Game" di video game. Anda bisa save di berbagai checkpoint, dan kalau mati atau salah ambil keputusan, bisa load game dari checkpoint sebelumnya.
+💡 <strong>Analogi Sederhana</strong>: Version control seperti sistem "Save Game" di video game. Anda bisa save di berbagai checkpoint, dan kalau mati atau salah ambil keputusan, bisa load game dari checkpoint sebelumnya.
 </div>
 
 ## Mengapa Git?
@@ -140,7 +140,7 @@ git checkout -b crazy-idea
 - **Portfolio di GitHub** = professional presence
 
 <div class="callout tip">
-💡 **Fun Fact**: Git begitu universal sampai ada joke: "There are only two types of programmers: those who use Git, and those who will use Git."
+💡<strong>Fun Fact</strong>: Git begitu universal sampai ada joke: "There are only two types of programmers: those who use Git, and those who will use Git."
 </div>
 
 ## Kapan Menggunakan Git?
@@ -183,7 +183,7 @@ Sebelum mulai hands-on, ada beberapa mindset yang perlu dipersiapkan:
 - Professional developers juga sering stuck di Git conflicts 😄
 
 <div class="callout warning">
-⚠️ **Important**: Jangan takut "rusak" sesuatu. Git dirancang untuk recovery dari hampir semua kesalahan. Worst case scenario: clone ulang dari remote repository.
+⚠️ <strong>Important</strong>: Jangan takut "rusak" sesuatu. Git dirancang untuk recovery dari hampir semua kesalahan. Worst case scenario: clone ulang dari remote repository.
 </div>
 
 ## Ringkasan

@@ -13,7 +13,7 @@ Di bab ini kita akan belajar:
 - 💻 **Praktik dengan VS Code** dan Git CLI
 
 <div class="callout warning">
-⚠️ **Peringatan**: Beberapa operasi pembatalan bersifat destructive dan tidak bisa di-undo. Selalu backup penting sebelum melakukan operasi yang berisiko!
+⚠️ <strong>Peringatan</strong>: Beberapa operasi pembatalan bersifat destructive dan tidak bisa di-undo. Selalu backup penting sebelum melakukan operasi yang berisiko!
 </div>
 
 ## Skenario Umum yang Membutuhkan Pembatalan
@@ -39,7 +39,7 @@ Di bab ini kita akan belajar:
 - Ingin memindah perubahan ke branch yang benar
 
 <div class="callout tip">
-💡 **Filosofi Git**: Git dirancang untuk mempertahankan history. Sebagian besar operasi pembatalan sebenarnya adalah membuat state baru yang mengembalikan kondisi sebelumnya.
+💡 <strong>Filosofi Git</strong>: Git dirancang untuk mempertahankan history. Sebagian besar operasi pembatalan sebenarnya adalah membuat state baru yang mengembalikan kondisi sebelumnya.
 </div>
 
 ## Level 1: Membatalkan Perubahan di Working Directory
@@ -430,7 +430,7 @@ git reset --hard HEAD~1
 - **Changes hilang sepenuhnya!**
 
 <div class="callout danger">
-🚨 **HATI-HATI**: `--hard` akan menghapus semua changes. Pastikan tidak ada pekerjaan penting yang belum disave di tempat lain!
+🚨 <strong>HATI-HATI</strong>: `--hard` akan menghapus semua changes. Pastikan tidak ada pekerjaan penting yang belum disave di tempat lain!
 </div>
 
 ### Penjelasan HEAD Notation
@@ -754,7 +754,7 @@ pick c3d4e5f Commit message 3
 - `edit`: Edit commit content
 
 <div class="callout warning">
-⚠️ **Interactive rebase mengubah history**. Jangan gunakan untuk commits yang sudah dipush ke shared repository!
+⚠️ <strong>Interactive rebase mengubah history<strong>. Jangan gunakan untuk commits yang sudah dipush ke shared repository!
 </div>
 
 ## Best Practices untuk Pembatalan

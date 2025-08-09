@@ -11,7 +11,7 @@ Sebelum bisa menggunakan Git, kita perlu menyiapkan "senjata" terlebih dahulu. B
 - 🎯 **Verifikasi** bahwa semua sudah berjalan dengan baik
 
 <div class="callout tip">
-💡 **Pro Tip**: Jangan skip langkah verifikasi! Lebih baik spend 5 menit extra untuk memastikan setup benar daripada stuck berjam-jam nanti karena konfigurasi salah.
+💡 <strong>Pro Tip</strong>: Jangan skip langkah verifikasi! Lebih baik spend 5 menit extra untuk memastikan setup benar daripada stuck berjam-jam nanti karena konfigurasi salah.
 </div>
 
 ## Instalasi Git
@@ -261,7 +261,7 @@ git config --global user.email "budi.santoso@gmail.com"
 </div>
 
 <div class="callout warning">
-⚠️ **Penting**: Gunakan email yang sama dengan yang akan Anda gunakan untuk GitHub account nanti!
+⚠️ <strong>Penting</strong>: Gunakan email yang sama dengan yang akan Anda gunakan untuk GitHub account nanti!
 </div>
 </div>
 
@@ -436,7 +436,7 @@ gh version 2.32.1 (2023-07-18)
 ```
 
 <div class="callout info">
-💡 **Note**: Kita akan setup authentication ke GitHub di bab selanjutnya saat mulai bekerja dengan remote repositories.
+💡 <strong>Note</strong>: Kita akan setup authentication ke GitHub di bab selanjutnya saat mulai bekerja dengan remote repositories.
 </div>
 
 ## Test Setup dengan VS Code
@@ -524,7 +524,7 @@ ls -la $(which git)
 - Jika masih muncul, jalankan ulang line ending config di atas
 
 <div class="callout danger">
-🚨 **Stuck?** Jangan panik! Join ke Discord/Telegram community atau cari di Stack Overflow dengan error message spesifik Anda. 99% masalah instalasi sudah pernah dialami orang lain.
+🚨 <strong>Stuck?</strong> Jangan panik! Join ke Discord/Telegram community atau cari di Stack Overflow dengan error message spesifik Anda. 99% masalah instalasi sudah pernah dialami orang lain.
 </div>
 
 ## Ringkasan

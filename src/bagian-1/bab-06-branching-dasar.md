@@ -12,7 +12,7 @@ Di bab ini kita akan belajar:
 - 📝 **Contoh kasus** branch untuk draft dan final catatan
 
 <div class="callout tip">
-💡 **Analogi**: Branch seperti parallel universe dalam komik Marvel. Anda bisa membuat timeline alternatif, bereksperimen dengan skenario berbeda, lalu memutuskan mana yang ingin dijadikan "canon" di timeline utama.
+💡 <strong>Analogi</strong>: Branch seperti parallel universe dalam komik Marvel. Anda bisa membuat timeline alternatif, bereksperimen dengan skenario berbeda, lalu memutuskan mana yang ingin dijadikan "canon" di timeline utama.
 </div>
 
 ## Konsep Dasar Branching
@@ -79,7 +79,7 @@ Untuk memahami branching, kita akan menggunakan skenario praktis:
 <div class="steps">
 
 <div class="step">
-**Branch Indicator di Status Bar**
+<strong>Branch Indicator di Status Bar</strong>
 
 Di bagian bawah kiri VS Code, Anda akan melihat nama branch saat ini (biasanya `main`). Ini menunjukkan branch yang sedang aktif.
 
@@ -89,7 +89,7 @@ Di bagian bawah kiri VS Code, Anda akan melihat nama branch saat ini (biasanya `
 </div>
 
 <div class="step">
-**Branch Selector**
+<strong>Branch Selector</strong>
 
 Klik pada nama branch di status bar untuk membuka **branch selector** yang menampilkan:
 - Branch yang tersedia
@@ -137,7 +137,7 @@ git branch -a
 <div class="steps">
 
 <div class="step">
-**Via Branch Selector**
+<strong>Via Branch Selector</strong>
 
 1. Klik nama branch di status bar
 2. Pilih **"Create new branch"**
@@ -155,7 +155,7 @@ VS Code akan otomatis:
 </div>
 
 <div class="step">
-**Via Command Palette**
+<strong>Via Command Palette</strong>
 
 1. `Ctrl+Shift+P` → ketik "Git: Create Branch"
 2. Masukkan nama branch: `draft`
@@ -214,7 +214,7 @@ Sekarang Anda berada di branch `draft`. Semua perubahan yang dibuat akan tersimp
 <div class="steps">
 
 <div class="step">
-**Buat File Draft**
+<strong>Buat File Draft</strong>
 
 Di branch `draft`, buat file baru:
 
@@ -271,7 +271,7 @@ git commit -m "Draft catatan 6 Januari"
 <div class="steps">
 
 <div class="step">
-**Via VS Code**
+<strong>Via VS Code</strong>
 
 1. Klik nama branch di status bar
 2. Pilih `main` dari dropdown
@@ -285,7 +285,7 @@ Perhatikan bahwa file draft yang tadi dibuat **tidak akan terlihat** di main bra
 </div>
 
 <div class="step">
-**Via Git CLI**
+<strong>Via Git CLI</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -403,7 +403,7 @@ Mari kita merge beberapa ide bagus dari draft ke main branch.
 <div class="steps">
 
 <div class="step">
-**Persiapan: Pastikan di Main Branch**
+<strong>Persiapan: Pastikan di Main Branch</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -416,7 +416,7 @@ git status
 </div>
 
 <div class="step">
-**Copy Insights dari Draft**
+<strong>Copy Insights dari Draft</strong>
 
 Sebelum merge otomatis, mari ambil beberapa insights dari draft secara manual:
 
@@ -450,7 +450,7 @@ git commit -m "Menambahkan insights dari draft branch"
 <div class="steps">
 
 <div class="step">
-**Via Command Palette**
+<strong>Via Command Palette</strong>
 
 1. Pastikan Anda di main branch
 2. `Ctrl+Shift+P` → "Git: Merge Branch"
@@ -463,7 +463,7 @@ git commit -m "Menambahkan insights dari draft branch"
 </div>
 
 <div class="step">
-**Review Merge Result**
+<strong>Review Merge Result</strong>
 
 Setelah merge, check:
 - File history di Source Control
@@ -550,7 +550,7 @@ git branch
 ```
 
 <div class="callout warning">
-⚠️ **Hati-hati**: `git branch -d` hanya menghapus branch yang sudah di-merge. Untuk force delete, gunakan `git branch -D`.
+⚠️ <strong>Hati-hati</strong>: <code>git branch -d</code> hanya menghapus branch yang sudah di-merge. Untuk force delete, gunakan <code>git branch -D</code>.
 </div>
 
 ## Praktik Lanjutan: Weekly Summary Branch
@@ -560,7 +560,7 @@ Mari praktik skenario yang lebih kompleks:
 <div class="steps">
 
 <div class="step">
-**Buat Branch Weekly Summary**
+<strong>Buat Branch Weekly Summary</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -572,7 +572,7 @@ git checkout -b weekly-summary
 </div>
 
 <div class="step">
-**Buat File Summary**
+<strong>Buat File Summary</strong>
 
 **File: `weekly/week-1-january-2024.md`**
 ```markdown
@@ -612,7 +612,7 @@ Minggu pertama tahun 2024 fokus pada learning Git fundamentals.
 </div>
 
 <div class="step">
-**Commit dan Merge**
+<strong>Commit dan Merge</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -729,7 +729,7 @@ git for-each-ref --sort=-committerdate refs/heads/
 <div class="steps">
 
 <div class="step">
-**Basic Branch Practice**
+<strong>Basic Branch Practice</strong>
 
 1. Buat branch baru: `experiment`
 2. Buat file baru di branch tersebut
@@ -740,7 +740,7 @@ git for-each-ref --sort=-committerdate refs/heads/
 </div>
 
 <div class="step">
-**Advanced Branch Workflow**
+<strong>Advanced Branch Workflow</strong>
 
 1. Buat dua branch: `feature-a` dan `feature-b`
 2. Buat commits berbeda di masing-masing branch
@@ -749,7 +749,7 @@ git for-each-ref --sort=-committerdate refs/heads/
 </div>
 
 <div class="step">
-**Real-world Scenario**
+<strong>Real-world Scenario</strong>
 
 1. Buat branch `blog-draft` untuk menulis artikel
 2. Tulis draft kasar dengan typos dan informal language

@@ -12,7 +12,7 @@ Yang akan kita pelajari:
 - 🎯 **Memahami workflow** dasar Git
 
 <div class="callout tip">
-💡 **Mindset**: Anggap Git seperti sistem "Save Game" untuk project Anda. Repository adalah folder game, dan setiap commit adalah checkpoint yang bisa Anda load kapan saja.
+💡 <strong>Mindset</strong>: Anggap Git seperti sistem "Save Game" untuk project Anda. Repository adalah folder game, dan setiap commit adalah checkpoint yang bisa Anda load kapan saja.
 </div>
 
 ## Apa itu Repository?
@@ -39,7 +39,7 @@ my-project/              ← Working Directory
 ```
 
 <div class="callout warning">
-⚠️ **PENTING**: Jangan pernah mengedit file di dalam folder `.git` secara manual! Git yang akan mengelolanya. Kalau rusak, repository bisa corrupt.
+⚠️ <strong>PENTING</strong>: Jangan pernah mengedit file di dalam folder `.git` secara manual! Git yang akan mengelolanya. Kalau rusak, repository bisa corrupt.
 </div>
 
 ## Persiapan: Contoh Kasus Catatan Harian
@@ -54,7 +54,7 @@ Untuk latihan, kita akan membuat sistem **catatan harian** sederhana. Ini perfec
 
 ```
 catatan-harian/
-├── .git/                    ← Git repository
+├── .git/                   ← Git repository
 ├── README.md               ← Penjelasan project
 ├── 2024/                   ← Folder per tahun
 │   ├── januari/
@@ -63,7 +63,7 @@ catatan-harian/
 │   └── februari-2024.md
 ├── templates/              ← Template untuk catatan
 │   └── template-harian.md
-└── .gitignore             ← Files yang diabaikan Git
+└── .gitignore              ← Files yang diabaikan Git
 ```
 
 ## Langkah 1: Membuat Folder Project
@@ -71,7 +71,7 @@ catatan-harian/
 <div class="steps">
 
 <div class="step">
-**Buat Folder Project**
+<strong>Buat Folder Project</strong>
 
 Buat folder untuk project catatan harian Anda:
 
@@ -102,7 +102,7 @@ cd catatan-harian
 </div>
 
 <div class="step">
-**Verifikasi Lokasi**
+<strong>Verifikasi Lokasi</strong>
 
 Pastikan Anda berada di folder yang benar:
 
@@ -126,7 +126,7 @@ Di VS Code, Anda akan melihat folder `catatan-harian` terbuka di Explorer panel.
 <div class="steps">
 
 <div class="step">
-**Initialize via Git CLI**
+<strong>Initialize via Git CLI</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -142,12 +142,12 @@ Initialized empty Git repository in /Users/username/Documents/catatan-harian/.gi
 ```
 
 <div class="callout info">
-💡 **What just happened?** Git membuat folder tersembunyi `.git` yang berisi database untuk menyimpan histori project Anda.
+💡 <strong>What just happened?</strong> Git membuat folder tersembunyi `.git` yang berisi database untuk menyimpan histori project Anda.
 </div>
 </div>
 
 <div class="step">
-**Initialize via VS Code**
+<strong>Initialize via VS Code</strong>
 
 **Alternatif cara via VS Code:**
 
@@ -170,7 +170,7 @@ Atau:
 </div>
 
 <div class="step">
-**Verifikasi Inisialisasi**
+<strong>Verifikasi Inisialisasi</strong>
 
 Check apakah folder `.git` sudah terbuat:
 
@@ -207,7 +207,7 @@ Mari buat beberapa file untuk mulai tracking dengan Git.
 <div class="steps">
 
 <div class="step">
-**Buat README.md**
+<strong>Buat README.md</strong>
 
 <div class="code-with-label">
 <div class="code-label">Via VS Code</div>
@@ -251,7 +251,7 @@ Repository untuk menyimpan catatan harian pribadi dalam format Markdown.
 </div>
 
 <div class="step">
-**Buat Template File**
+<strong>Buat Template File</strong>
 
 Buat folder dan file template:
 
@@ -300,7 +300,7 @@ Buat folder dan file template:
 </div>
 
 <div class="step">
-**Buat Catatan Pertama**
+<strong>Buat Catatan Pertama</strong>
 
 Mari buat catatan pertama sebagai contoh:
 
@@ -353,7 +353,7 @@ Sekarang kita punya beberapa file. Mari lihat bagaimana Git melihat situasi ini.
 <div class="steps">
 
 <div class="step">
-**Check Status via Git CLI**
+<strong>Check Status via Git CLI</strong>
 
 <div class="code-with-label">
 <div class="code-label">Git CLI</div>
@@ -379,15 +379,18 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 <div class="callout info">
-💡 **Penjelasan Status:**
-- **On branch main**: Anda sedang di branch utama
-- **No commits yet**: Belum ada commit (checkpoint) yang dibuat
-- **Untracked files**: File-file ini belum di-track oleh Git
+💡 <strong>Penjelasan Status:</strong>
+    <ul>
+        <li><strong>On branch main</strong>: Anda sedang di branch utama</li>
+        <li><strong>No commits yet</strong>: Belum ada commit (checkpoint) yang dibuat</li>
+        <li><strong>Untracked files</strong>: File-file ini belum di-track oleh Git</li>
+    </ul>
 </div>
+
 </div>
 
 <div class="step">
-**Check Status via VS Code**
+<strong>Check Status via VS Code</strong>
 
 Di VS Code, perhatikan:
 
@@ -439,10 +442,12 @@ git status
 ```
 
 <div class="callout tip">
-💡 **Analogi**: Bayangkan Anda sedang packing koper:
-- **Working Directory**: Barang-barang di kamar (untracked)
-- **Staging Area**: Barang yang sudah diletakkan di koper tapi belum dikunci (staged)
-- **Repository**: Koper yang sudah dikunci dan ready to go (committed)
+💡 <strong>Analogi</strong> Bayangkan Anda sedang packing koper:
+    <ul>
+        <li><strong>Working Directory</strong>: Barang-barang di kamar (untracked)</li>
+        <li><strong>Staging Area</strong>: Barang yang sudah diletakkan di koper tapi belum dikunci (staged)</li>
+        <li><strong>Repository</strong>: Koper yang sudah dikunci dan ready to go (committed)</li>
+    </ul>
 </div>
 
 ## Eksplorasi Folder .git
@@ -450,7 +455,7 @@ git status
 Mari kita intip isi folder `.git` untuk memahami bagaimana Git bekerja.
 
 <div class="callout warning">
-⚠️ **PERINGATAN**: Ini hanya untuk edukasi. Jangan pernah edit file di `.git` secara manual!
+⚠️ <strong>PERINGATAN</strong>: Ini hanya untuk edukasi. Jangan pernah edit file di `.git` secara manual!
 </div>
 
 <div class="code-with-label">

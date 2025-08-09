@@ -11,7 +11,7 @@ Di bab ini kita akan belajar:
 - 📊 **Menggunakan VS Code** untuk visualisasi yang lebih baik
 
 <div class="callout tip">
-💡 **Analogi**: Bayangkan Git seperti kamera CCTV untuk project Anda. Status menunjukkan apa yang terjadi "sekarang", sedangkan log menunjukkan "rekaman" semua kejadian sebelumnya.
+💡 <strong>Analogi</strong>: Bayangkan Git seperti kamera CCTV untuk project Anda. Status menunjukkan apa yang terjadi "sekarang", sedangkan log menunjukkan "rekaman" semua kejadian sebelumnya.
 </div>
 
 ## Contoh Kasus: Review Catatan Mingguan
@@ -36,7 +36,7 @@ Untuk praktik, kita akan menggunakan skenario dimana Anda sudah menulis catatan 
 <div class="steps">
 
 <div class="step">
-**Buka Source Control Panel**
+<strong>Buka Source Control Panel</strong>
 
 1. Tekan `Ctrl+Shift+G` atau klik icon Source Control di sidebar
 2. Panel akan menunjukkan berbagai kategori:
@@ -50,7 +50,7 @@ Untuk praktik, kita akan menggunakan skenario dimana Anda sudah menulis catatan 
 </div>
 
 <div class="step">
-**Interpretasi Status Indicators**
+<strong>Interpretasi Status Indicators</strong>
 
 Di VS Code, setiap file punya indikator warna dan huruf:
 - **U** (hijau): Untracked - file baru yang belum pernah di-commit
@@ -91,10 +91,12 @@ Untracked files:
 ```
 
 <div class="callout info">
-💡 **Penjelasan Status:**
-- **Changes to be committed**: File yang sudah di-stage, siap commit
-- **Changes not staged**: File yang diubah tapi belum di-stage
-- **Untracked files**: File baru yang belum pernah di-add
+💡 <strong>Penjelasan Status:</strong>
+   <ul>
+      <li><strong>Changes to be committed</strong>: File yang sudah di-stage, siap commit</li>
+      <li><strong>Changes not staged</strong>: File yang diubah tapi belum di-stage</li>
+      <li><strong>Untracked files</strong>: File baru yang belum pernah di-add</li>
+   </ul>
 </div>
 
 ### Status Singkat (Short Status)
@@ -138,7 +140,7 @@ Git log menampilkan histori semua commit yang pernah dibuat, mulai dari yang ter
 <div class="steps">
 
 <div class="step">
-**Melihat Git History**
+<strong>Melihat Git History</strong>
 
 1. **Via Command Palette**:
    - `Ctrl+Shift+P` → ketik "Git: View History"
@@ -154,7 +156,7 @@ Git log menampilkan histori semua commit yang pernah dibuat, mulai dari yang ter
 </div>
 
 <div class="step">
-**Eksplorasi Commit Details**
+<strong>Eksplorasi Commit Details</strong>
 
 Klik pada salah satu commit untuk melihat:
 - **Files changed**: File apa saja yang berubah
@@ -269,7 +271,7 @@ Date:   Tue Jan 2 14:30:25 2024 +0700
 <div class="steps">
 
 <div class="step">
-**Melihat Changes pada File**
+<strong>Melihat Changes pada File</strong>
 
 1. Di **Source Control panel**, file yang diubah akan muncul di "Changes"
 2. **Klik pada nama file** untuk membuka **diff view**
@@ -284,7 +286,7 @@ Date:   Tue Jan 2 14:30:25 2024 +0700
 </div>
 
 <div class="step">
-**Navigate Changes**
+<strong>Navigate Changes</strong>
 
 Gunakan arrows di bagian atas diff view untuk:
 - **Previous change** (panah atas)
@@ -293,7 +295,7 @@ Gunakan arrows di bagian atas diff view untuk:
 </div>
 
 <div class="step">
-**Inline Diff View**
+<strong>Inline Diff View</strong>
 
 Klik icon **"Toggle Inline View"** untuk melihat diff dalam satu panel:
 - Baris yang dihapus ditampilkan dengan background merah
@@ -410,7 +412,7 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 - **Tekan `h`** untuk help
 
 <div class="callout info">
-💡 **Git menggunakan "less" pager**: Sama seperti command `less` di Linux/macOS untuk navigasi file panjang.
+💡 <strong>Git menggunakan "less" pager</strong>: Sama seperti command `less` di Linux/macOS untuk navigasi file panjang.
 </div>
 
 ## Latihan Mandiri
@@ -418,7 +420,7 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 <div class="steps">
 
 <div class="step">
-**Praktik Status dan Diff**
+<strong>Praktik Status dan Diff</strong>
 
 1. Buat perubahan pada file `README.md`
 2. Jalankan `git status` dan `git diff`
@@ -428,7 +430,7 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 </div>
 
 <div class="step">
-**Praktik Log Exploration**
+<strong>Praktik Log Exploration</strong>
 
 1. Jalankan `git log` dengan berbagai format:
    - `git log`
